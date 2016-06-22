@@ -1,0 +1,131 @@
+
+
+
+
+Javascript Lang
+---------------
+
+JS lang
+
+--> scripting lang fro web-pages in browser
++
+--> server-side lang on NodeJS runtime
+--> stand-alone appln
+--> mobile application
+
+-------------
+
+JS Features
+
+--> functional pgming lang
+--> object oriented lang
+
+--> datatypes are dynamic
+--> it supports closure
+
+--> single-threaded lang
+--> will provide better concurrency
+
+------------------------------------------
+
+
+JS lang is based on 'ECMAScript' spec.
+
+latest : ES6
+
+-------------------------------------------
+
+How to execute JS programs ?
+
+ --> we need 'JS engine'
+
+ browsers
+
+  chrome  --> v8 ( c++ )
+  firefox --> rhino ( java )
+  IE      --> chakra 
+  safari  --> nitro
+
+non-browser
+
+  node   --> v8
+  JVM    --> nashorn
+  MongoDB -->
+  Apache CouchDB -->
+
+  -----------------------------
+
+
+  where/when i shud use JS lang ?
+
+ --> Event-Driven , Asych processing.
+
+ -------------------------------
+
+
+selected topics on JS
+
+--> JS - execution contexts - chain
+--> 'this' keyword
+--> closure
+--> inheritance
+--> How JS will provide better concurrency
+
+
+--------------------------------
+
+
+npm config set proxy http://proxy.cognizant.com:6050
+npm config set strict-ssl false
+
+
+
+//----------------------------------------
+
+ when initial js loaded into browser , JS engine
+
+ will create one 'Global Execution-Context' 
+
+
+  Execution-Context --> memory that holds args,local var
+                        with instructions to execute
+
+  
+  window === this
+
+ --------------------------------------------------
+
+  Global Execution-Context
+  
+     has 2 phases
+     
+     a. context-creation phase
+     
+        -->all variables are hoisted ( lifting-up ) to the top of context
+           with default value ( undefined )
+     	
+     	-->all global variables are assigned as property of glob-obj ( window ). 
+     
+     b. context-execution phase
+
+--------------------------------------------------------
+
+
+  in JS , every func invocation will create one execution-context which
+  is child of above context.
+
+--------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
