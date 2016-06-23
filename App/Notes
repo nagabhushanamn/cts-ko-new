@@ -1,0 +1,101 @@
+
+
+
+ what JS can do on HTML-page in browser?
+ 
+  ---------------------------------------------------
+ 
+  JS using Web APIs can bring any dynamic-functionality to web-page.
+  
+  e.g DOM , XHR , Timer , etc....
+  
+  Web APIs are implemented/abstracted by browser(s)
+  
+  abstraction of any web APIs is JS-objects & functions
+  
+   ---------------------------------------------------
+ 
+ 	using DOM API
+ 	
+   --> can create/select/update/remove HTML elements
+   --> can change element's attribute values
+   --> can change element's style
+   --> can change element's text-content
+   --> can create rich-UI components
+   --> can bind event listeners on HTML elements
+   
+   using XHR API
+   
+   --> can communicate with server asych , update resp in existing page ( AJAX )
+   
+   
+   HTML5 APIs
+   
+   a. canvas --> drawing API
+   b. audio/video
+   c. storage
+   d. geo
+   e. WebWorker
+   f. SSE
+   g. WebGL
+   
+   ---------------------------------------
+   
+   front-end appln  ==> HTML + CSS + JS + Web APIs
+   
+   -------------------------------------
+   
+    
+    complexity of plain-JS ( your code )
+    
+    
+    --> browser compatibility
+    --> too much code for simple operations
+    --> performance  ( on DOM manipulation )
+    --> memory leak
+    --> no solution to organize js-code
+    
+    Etc....
+    
+    --------------------------------------
+    
+    soln : using JS libraries and F.Ws
+   
+    JS - library
+    ------------
+    
+    1. jQuery
+   
+       adv:
+       
+       --> simple to use
+       --> many methods for standard JS operation(s).
+       --> many plug-ins
+       
+       cons
+       
+       -> it is low-level library.. ( very close DOM )
+       -> data binding is manual
+       -> no support code organization ( MVVM )
+       
+    2. knockout   
+    
+    --------------------------------------------   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   

@@ -5,6 +5,12 @@
 /*
  * 	A closure is a function having access to the parent scope, 
  *  even after the parent function has closed.
+ *  
+ *  why we need closure ?
+ *  
+ *  1. to abstract public behav of any module to other.
+ *  2. while executing any func async , can able to acess parent-context data.
+ *  
  * 
  */
 

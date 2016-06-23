@@ -68,8 +68,9 @@ selected topics on JS
 --> JS - execution contexts - chain
 --> 'this' keyword
 --> closure
+
 --> inheritance
---> How JS will provide better concurrency
+--> How JS will provides concurrency
 
 
 --------------------------------
@@ -119,8 +120,31 @@ npm config set strict-ssl false
 
 
 
+  JS is
+  
+     -> single-threaded lang
+     -> can provide better concurrency
+     -> it will do non-blocking IO
+     -> callback
+     -> can execute functions asynch
 
 
+How JS executes in browser ?
+
+
+ e.g chrome browser
+ 
+    1. JS-engine ( v8 )
+
+       single-call-stack   ( to execute context )
+       heap
+       
+    2. Web APIs ( e.g DOM , XHR , etc... )
+    3. callback/message queue
+    4. Event-Loop
+    
+    
+  ----------------------------------------------     
 
 
 
