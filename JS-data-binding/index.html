@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS -data-binding</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header">JS - data-binding</div>
+	
+	<!-- View -->
+	<div class="well">
+		Hello <span  class="badge" data-bind="text:name">(name)</span>
+		<hr/>
+		Name: <input  type="text" data-bind="value:name">
+		      <button class="btn btn-primary" data-bind="click:resetName">Reset</button>
+		      <button class="btn btn-primary" data-bind="click:sayName">sayName</button>
+	</div>
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS -data-binding</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header"> KO - learn  : getting started</div>
+	
+	
+	<div class="well" id="box1">
+		Course : <span data-bind="text:course"></span> <br/> 
+		Rating :  <span data-bind="text:rating"></span> <br/> 
+	</div>
+	
+	<div class="well" id="box2">
+		Course : <span data-bind="text:course"></span> <br/> 
+		Rating :  <span data-bind="text:rating"></span> <br/> 
+	</div>
+	
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		var vm1={
+				course:'KO',
+				rating:9
+		};
+		var vm2={
+				course:'Angular',
+				rating:10
+		};
+		ko.applyBindings(vm1,document.getElementById('box1'));
+		ko.applyBindings(vm2,$('#box2').get(0));
+	});
+	
+	</script>
+
+</body>
+</html>

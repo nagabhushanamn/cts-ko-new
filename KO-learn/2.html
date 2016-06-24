@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>JS -data-binding</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header"> KO - learn  : Observable</div>
+	
+	<div class="well">
+
+		<table class="table">
+			<tr>
+				<td>Price Per Item:</td>
+				<td><input data-bind="value:itemPrice"/></td>
+			</tr>
+			<tr>
+				<td>Quantity:</td>
+				<td><input data-bind="value:quantity"/></td>
+			</tr>
+			<tr>
+				<td>Total:</td>
+				<td><input data-bind="value:totalPrice"/></td>
+			</tr>
+		</table>
+	
+	</div>
+	
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	
+		function ViewModel(price,quantity){
+			var self=this;
+			this.itemPrice=ko.observable(price);
+			this.quantity=ko.observable(quantity);
+			/* 
+			this.totalPrice=ko.computed(function(){
+				return self.itemPrice()*self.quantity();
+			}); 
+			*/
+			this.totalPrice=ko.computed({
+				read:function(){
+					return "$"+(this.itemPrice()*this.quantity()).toFixed(2);
+				},
+				write:function(value){
+					//console.log(value);
+					var value=parseFloat(value.replace(/[^\.\d]/g, ""));
+					value=isNaN(value)?0:value;
+					var tempPrice=value/this.quantity();
+					this.itemPrice(tempPrice);
+				},
+				owner:this
+			}); 
+		}
+		
+		var vm=new ViewModel(15.00, 9);
+		ko.applyBindings(vm);
+		
+	});
+	
+	</script>
+
+</body>
+</html>

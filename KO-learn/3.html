@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header"> KO - learn  : Observable</div>
+	
+	<div class="well">
+
+		<form data-bind="submit:addCourse">
+		
+			New Course : <input data-bind='value:newCourse,valueUpdate:"afterkeydown"'>
+		                 <button class="btn btn-primary" type="submit" data-bind="enable:newCourse().length > 0">Add</button>
+		    <hr/>
+		    Couse List:<br/>
+		    <select multiple="multiple" data-bind="options:courses" class="form-control"></select>
+			There are <span class="badge" data-bind="text:courses().length"></span> courses in the list.
+		</form>             
+	                 
+	</div>
+	
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	
+		function ViewModel(courses){
+			var self=this;
+			self.newCourse=ko.observable('');
+			self.courses=ko.observableArray(courses);
+			self.addCourse=function(){
+				if(self.newCourse()){
+					self.courses.push(self.newCourse());
+					self.newCourse('');
+					console.log(self.courses());
+				}
+			}
+		}
+		
+		var vm=new ViewModel(['JS','KO','NG']);
+		ko.applyBindings(vm);
+		
+	});
+	
+	</script>
+
+</body>
+</html>
