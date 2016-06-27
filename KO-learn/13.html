@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+<style type="text/css">
+.focus{
+background-color: #def;
+}
+</style>	
+</head>
+<body class="container">
+
+	<div class="page-header">KO - learn : foreach _ ex2</div>
+
+	
+	<div class="list-group" data-bind="foreach:products">
+		<div class="list-group-item" data-bind="css:{focus:$data.focusedItem},event:{mouseenter:$parent.onMouseEnter,mouseout:$parent.onMouseOut}">
+			<span class="badge" data-bind="text:$index"></span>
+			<h4 data-bind="text:$data.name"></h4>
+			<h5 data-bind="text:price"></h5>
+			<p data-bind="text:desc"></p>
+			<button class="btn btn-danger" data-bind="click:$parent.remove">Remove</button>
+		</div>
+	</div>
+
+	<button class="btn btn-primary" data-bind="click:add">Add New-Product</button>	
+
+	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript"
+		src="bower_components/knockout/dist/knockout.debug.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			function ViewModel(products) {
+				var self=this;
+				//self.focusedItem=ko.observable(false);
+				self.products = ko.observableArray(products);
+				self.add=function(){
+					var p={name:'New',price:0,desc:'bla'};
+					self.products.push(p);
+				};
+				self.remove = function() {
+					console.log('removing..');
+					self.products.remove(this);
+			    }
+				self.onMouseEnter=function(){
+					//self.focusedItem(true);
+					this.focus=true;
+				}
+				self.onMouseOut=function(){
+					//self.focusedItem(false);
+					this.focus=false;
+				}
+			}
+
+			var items = [ {
+				name : 'Laptop',
+				price : 198000,
+				desc : 'New Model'
+			}, {
+				name : 'Mobile',
+				price : 19000,
+				desc : 'New Model'
+			} ];
+
+			var vm = new ViewModel(items);
+			ko.applyBindings(vm);
+
+		});
+	</script>
+
+</body>
+</html>

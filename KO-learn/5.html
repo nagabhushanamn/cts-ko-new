@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header"> KO - learn  : Text</div>
+	
+	<div class="well">
+
+	Welcome <i><span data-bind="text:participant"></span></i> to the KO course
+		
+	</div>
+	
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	
+		function ViewModel(name){
+			this.participant=ko.observable(name);
+		}
+		
+		var vm=new ViewModel('<b>Nag</b>');
+		ko.applyBindings(vm);
+		
+	});
+	
+	</script>
+
+</body>
+</html>

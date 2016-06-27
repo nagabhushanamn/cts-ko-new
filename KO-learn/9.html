@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header"> KO - learn  : attr</div>
+	
+	<div class="well">
+		<img data-bind="attr:{src:source,title:info}" class="img-responsive">
+	</div>
+	
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		var images=[
+		            {source:'images/Laptop.png',info:'New Model'},
+		            {source:'images/Mobile.png',info:'Old Model'}
+		            ];
+	
+		function ViewModel(){
+			this.source=ko.observable();
+			this.info=ko.observable();
+		}
+		
+		var vm=new ViewModel();
+		ko.applyBindings(vm);
+		
+		vm.source(images[0].source);
+		vm.info(images[0].info);
+		
+		setTimeout(function() {
+			vm.source(images[1].source);
+			vm.info(images[1].info);
+		}, 2000);
+		
+	});
+	
+	</script>
+
+</body>
+</html>

@@ -8,7 +8,7 @@
 </head>
 <body class="container">
 
-	<div class="page-header"> KO - learn  : Observable</div>
+	<div class="page-header"> KO - learn  : Observable Array</div>
 	
 	<div class="well">
 
@@ -18,7 +18,7 @@
 		                 <button class="btn btn-primary" type="submit" data-bind="enable:newCourse().length > 0">Add</button>
 		    <hr/>
 		    Couse List:<br/>
-		    <select multiple="multiple" data-bind="options:courses" class="form-control"></select>
+		    <select size="10" multiple="multiple" data-bind="options:courses" class="form-control"></select>
 			There are <span class="badge" data-bind="text:courses().length"></span> courses in the list.
 		</form>             
 	                 

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO-shopIT</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header">KO - shopIT</div>
+
+	<!-- View -->
+	<div data-bind="foreach: { data: products, as: 'product' }" class="list-group">
+		<div class="row list-group-item">
+			<div class="col-md-3">
+				<img data-bind="attr:{src:product.images[0].source,title:product.images[0].title}" class="img-responsive" style="width: 100px">
+			</div>
+			<div class="col-md-9">
+				<div>
+					<span data-bind="text: ($index() + 1)" class="pull-right"></span>
+					<h4 data-bind="text:product.name"></h4>
+					<h5 data-bind="text:product.price"></h5>
+					<button data-bind="visible:product.buy" class="btn btn-sm btn-primary">Add to cart</button>
+				</div>
+				<hr/>
+				<section>
+					<ul class="nav nav-tabs">
+						<li data-bind="css:{active:tab()===1}"><a href="#"  data-bind="click:$root.changeTab.bind($data,1)">Description</a></li>
+						<li data-bind="css:{active:tab()===2}"><a  href="#" data-bind="click:$root.changeTab.bind($data,2)">Specification</a></li>
+						<li data-bind="css:{active:tab()===3}"><a  href="#" data-bind="click:$root.changeTab.bind($data,3)">Reviews</a></li>
+					</ul>
+					<div class="panel" data-bind="visible:tab()===1">
+						<div class="panel-body">
+							<p data-bind="text:product.description"></p>
+						</div>
+					</div>
+					<div class="panel" data-bind="visible:tab()===2">
+						<div class="panel-body">
+							Not Yet
+						</div>
+					</div>
+					<div class="panel" data-bind="visible:tab()===3">
+						<div class="panel-body">
+							None Yet
+						</div>
+					</div>
+				</section>
+				
+			</div>
+		</div>
+	</div>
+
+	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript"
+		src="bower_components/knockout/dist/knockout.js"></script>
+
+	<script type="text/javascript" src="js/app.js"></script>
+
+</body>
+</html>

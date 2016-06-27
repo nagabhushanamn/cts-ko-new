@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header">KO - learn : foreach _ ex1</div>
+
+	
+	<div class="list-group" data-bind="foreach:products">
+		<div class="list-group-item">
+			<h4 data-bind="text:name"></h4>
+			<h5 data-bind="text:price"></h5>
+			<p data-bind="text:desc"></p>
+		</div>
+	</div>
+	
+	<pre data-bind="text:ko.toJSON($data)">
+	</pre>
+
+	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript"
+		src="bower_components/knockout/dist/knockout.debug.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			function ViewModel(products) {
+				this.products = ko.observableArray(products);
+			}
+
+			var items = [ {
+				name : 'Laptop',
+				price : 198000,
+				desc : 'New Model'
+			}, {
+				name : 'Mobile',
+				price : 19000,
+				desc : 'New Model'
+			} ];
+
+			var vm = new ViewModel(items);
+			ko.applyBindings(vm);
+
+		});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+</head>
+<body class="container">
+
+	<div class="page-header"> KO - learn  : if & ifnot</div>
+	
+	
+	<input type="checkbox" data-bind="checked:showMessage"><hr/>
+	
+	<div data-bind="visible:showMessage">
+		Welcome
+	</div>
+	
+	<div data-bind="if:showMessage">
+		Welcome
+	</div>
+	
+	<div data-bind="ifnot:showMessage">
+		Welcome Again
+	</div>
+	
+	
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+		
+		function ViewModel(){
+			this.showMessage=ko.observable(true);
+		}
+		
+		var vm=new ViewModel();
+		ko.applyBindings(vm);
+		
+	});
+	
+	</script>
+
+</body>
+</html>

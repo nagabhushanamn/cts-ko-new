@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+
+	<style type="text/css">
+	
+	.badGrade{
+		background-color: yellow;
+		color: red;
+	}
+	
+	</style>	
+	
+</head>
+<body class="container">
+
+	<div class="page-header"> KO - learn  : CSS</div>
+	
+	<div class="well">
+		<input data-bind="value:grade"><hr/>
+		<div data-bind="css:{badGrade:grade()<70,'some-class':true}"> Course Grade : <span data-bind="text:grade"></span> </div>
+		
+	</div>
+	
+
+	<script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript" src="bower_components/knockout/dist/knockout.debug.js"></script>
+	
+	<script type="text/javascript">
+	
+	$(document).ready(function(){
+	
+		function ViewModel(grade){
+			this.grade=ko.observable(grade);
+		}
+		
+		var vm=new ViewModel(60);
+		ko.applyBindings(vm);
+		
+	});
+	
+	</script>
+
+</body>
+</html>

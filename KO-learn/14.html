@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+<style type="text/css">
+.focus{
+background-color: #def;
+}
+</style>	
+</head>
+<body class="container">
+
+	<div class="page-header">KO - learn : options</div>
+	
+	<div class="well">
+		<select data-bind="options: availableCountries"></select>		
+	</div>
+	<div class="well">
+		<select data-bind="options: availableCountries" multiple="multiple" size="5"></select>		
+	</div>
+	
+	<div class="well">
+		 <select data-bind="options: availableCountries2,
+                       optionsText: 'countryName',
+                       optionsValue:'countryPopulation',
+                       value: selectedCountry,
+                       optionsCaption: 'Choose...'"></select>
+	</div>
+
+
+	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript"
+		src="bower_components/knockout/dist/knockout.debug.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			
+			// Constructor for an object with two properties
+		    var Country = function(name, population) {
+		        this.countryName = name;
+		        this.countryPopulation = population;
+		    };
+
+			function ViewModel() {
+				this.availableCountries= ko.observableArray(['France', 'Germany', 'Spain'])
+				this.availableCountries2=ko.observableArray([
+									            new Country("UK", 65000000),
+									            new Country("USA", 320000000),
+									            new Country("Sweden", 29000000)
+									        	]);
+	        	this.selectedCountry = ko.observable();
+			}
+
+			var vm = new ViewModel();
+			ko.applyBindings(vm);
+
+		});
+	</script>
+
+</body>
+</html>
