@@ -1,0 +1,21 @@
+
+
+
+  JS module-standards
+  ----------------------------
+  
+  1. AMD standard
+  
+     Async Module Defn
+     -----------------
+     
+     --> to create module
+     
+       define()
+       
+     --> to load modules
+     
+       require()
+       
+    ---------------------------     
+     

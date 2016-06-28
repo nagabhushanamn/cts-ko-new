@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+<style type="text/css">
+.focus {
+	background-color: #def;
+}
+</style>
+</head>
+<body class="container">
+
+	<div class="page-header">KO - learn : custom-components</div>
+
+	<div class="well">
+	 <div data-bind="component:{name:'message-editor',params:{initialText:'Hello'}}"></div>
+	 <div data-bind="component:'message-editor'"></div>
+	</div>
+	
+	<div class="well">
+		<message-editor params="{initialText:'Hello'}"></message-editor>
+	</div>
+	
+	<div class="well">
+	<!-- ko component: {
+    name: "message-editor",
+    params: { initialText: "Hello, world!", otherParam: 123 }
+	} -->
+	<!-- /ko -->
+	</div>
+
+	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript"
+		src="bower_components/knockout/dist/knockout.debug.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+		
+			ko.components.register('message-editor',{
+				viewModel:function(params){
+					 this.text = ko.observable(params && params.initialText || '');
+				},
+				template:'Message: <input data-bind="value: text" /> '
+		            + '(length: <span data-bind="text: text().length"></span>)'
+			});
+			
+			ko.applyBindings();
+
+		});
+	</script>
+
+</body>
+</html>

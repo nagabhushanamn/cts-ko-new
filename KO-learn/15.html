@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>KO</title>
+<link href="bower_components/bootstrap/dist/css/bootstrap.css"
+	rel="stylesheet">
+<style type="text/css">
+.focus {
+	background-color: #def;
+}
+</style>
+</head>
+<body class="container">
+
+	<div class="page-header">KO - learn : template-binding</div>
+
+
+	<script type="text/html" id="person-template">
+   	 <h3 data-bind="text: name"></h3>
+     <p>Credits: <span data-bind="text: credits"></span></p>
+	</script>
+	<script type="text/html" id="person-template-new">
+   	 <h3 data-bind="text: person.name"></h3>
+     <p>Credits: <span data-bind="text: person.credits"></span></p>
+	</script>
+	
+	<div class="well">
+		<div data-bind="template: { name: 'person-template', data: buyer }"></div>
+		<hr/>	
+		<div data-bind="template: { name: 'person-template', data: seller }"></div>
+	</div>
+	
+	<div class="well">
+		<div data-bind="template: { name: 'person-template-new', foreach: people, as:'person' }"></div>
+	</div>
+	
+	<div class="well">
+	
+	<ul data-bind="template: { name: 'seasonTemplate', foreach: seasons, as: 'season' , afterRender: myPostProcessingLogic}"></ul>
+ 
+	<script type="text/html" id="seasonTemplate">
+    <li>
+        <strong data-bind="text: name"></strong>
+        <ul data-bind="template: { name: 'monthTemplate', foreach: months, as: 'month' }"></ul>
+    </li>
+	</script>
+ 
+	<script type="text/html" id="monthTemplate">
+    <li>
+        <span data-bind="text: month"></span>
+        is in
+        <span data-bind="text: season.name"></span>
+    </li>
+	</script>
+		
+	</div>
+	
+	<script type="text/javascript"
+		src="bower_components/jquery/dist/jquery.js"></script>
+	<script type="text/javascript"
+		src="bower_components/knockout/dist/knockout.debug.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+
+			function ViewModel() {
+				 this.buyer = { name: 'Franklin', credits: 250 };
+		         this.seller = { name: 'Mario', credits: 5800 };
+		         
+		         this.people = [
+		                        { name: 'Franklin', credits: 250 },
+		                        { name: 'Mario', credits: 5800 }
+		                   		]
+		         this.seasons=ko.observableArray([
+		                                      { name: 'Spring', months: [ 'March', 'April', 'May' ] },
+		                                      { name: 'Summer', months: [ 'June', 'July', 'August' ] },
+		                                      { name: 'Autumn', months: [ 'September', 'October', 'November' ] },
+		                                      { name: 'Winter', months: [ 'December', 'January', 'February' ] }
+		                                  ]); 
+		         this.myPostProcessingLogic=function(elements){
+		        	 $(elements[1]).on('mouseover',function(e){
+		        		 $(this).css('background-color','#def');
+		        	 });
+		        	 $(elements[1]).on('mouseout',function(e){
+		        		 $(this).css('background-color','#fff');
+		        	 });
+		         }                         
+			}
+			
+
+			var vm = new ViewModel();
+			ko.applyBindings(vm);
+
+		});
+	</script>
+
+</body>
+</html>

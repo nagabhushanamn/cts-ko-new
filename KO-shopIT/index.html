@@ -42,7 +42,30 @@
 					</div>
 					<div class="panel" data-bind="visible:tab()===3">
 						<div class="panel-body">
-							None Yet
+							<div data-bind="foreach: { data: product.reviews, as: 'review' }">
+								<blockquote>
+									<h5 data-bind="text:review.stars"></h5><small data-bind="text:review.author"></small>
+									<p data-bind="text:review.comment"></p>
+								</blockquote>		
+							</div>
+							<hr/>
+							<div class="col-md-5">
+							<form name="reviewForm" data-bind="submit:$root.addNewReview">
+								<div class="form-group">
+									<label>stars</label>
+									<select data-bind="options:[1,2,3,4,5],value:$root.newReview.stars" class="form-control"></select>
+								</div>
+								<div class="form-group">
+									<label>author</label>
+									<input type="email" class="form-control" data-bind='value:$root.newReview.author'>
+								</div>
+								<div class="form-group">
+									<label>comment</label>
+									<textarea class="form-control" data-bind='value:$root.newReview.comment'></textarea>
+								</div>
+								<button type="submit" class="btn btn-sm btn-primary">Submit</button>
+							</form>
+							</div>
 						</div>
 					</div>
 				</section>
