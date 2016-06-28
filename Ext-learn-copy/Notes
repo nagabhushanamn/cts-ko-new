@@ -1,0 +1,59 @@
+
+
+ ExtJS class
+ -------------------
+ 
+   --> pre-processor
+   
+       ["className",
+        "loader", 
+        "extend", 
+        "privates",
+        "statics", 
+        "inheritableStatics",
+        "platformConfig",
+        "config", 
+        "cachedConfig",
+        "mixins",
+        "alias"]
+   
+   --> post-processor
+   
+       ["alias",
+        "singleton",
+        "alternateClassName",
+        "debugHooks",
+        "deprecated", 
+        "uses"]
+        
+        
+--------------------------
+
+
+  1. How to handle Events
+  
+  2. MVC / MVVM --> arch
+  
+  3. data-model
+  
+ -------------------------
+
+
+
+  MVVM 
+  
+    --> to address the drawbacks of maintainability and testing in MVC.
+    --> data-binding
+
+
+
+
+
+
+
+
+
+
+
+
+
